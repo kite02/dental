@@ -1,0 +1,242 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.PatientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" 
+           d:DesignHeight="583" d:DesignWidth="1067" >
+    <UserControl.Background>
+        <ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>
+    </UserControl.Background>
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Border  Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0">
+            <TextBlock FontSize="30" Text="Patients" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Patient List">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Margin="5" Grid.Column="0" Header="Form" FontSize="15" >
+                        <Grid Background="#E4F1FE">
+                            <Grid Margin="40,10,40,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--Column 1-->
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="0" Text="First Name:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="1" Text="Middle Name:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="2" Text="Last Name:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="3" Text="Gender:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="4" Text="Date of Birth:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="5" Text="Age:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="6" Text="Mobile No.:" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="7" Text="Address" VerticalAlignment="Center"/>
+                                <!--End Column 1-->
+                                <!--Column 2-->
+                                <TextBox  Grid.Column="1" FontSize="15" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" Background="White" Text="{Binding Patient.Firstname,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Grid.Column="1"  FontSize="15" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Background="White" Text="{Binding Patient.Middlename,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Grid.Column="1"  FontSize="15" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" Background="White" Text="{Binding Patient.Lastname,UpdateSourceTrigger=PropertyChanged}"/>
+                                <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Center" Background="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Grid.Column="0" FontSize="15" Content="Male" Name="rbMale" HorizontalAlignment="Center" GroupName="Gender" Command="{Binding HandleGender}" CommandParameter="{Binding ElementName=rbMale, Path=Content}"/>
+                                    <RadioButton Grid.Column="1" FontSize="15" Content="Female"  Name="rbFemale" HorizontalAlignment="Center" GroupName="Gender" Command="{Binding HandleGender}" CommandParameter="{Binding ElementName=rbFemale, Path=Content}" />
+                                </Grid>
+                                <DatePicker FontSize="15" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Center" Background="White" SelectedDate="{Binding Patient.Birthdate}"/>
+                                <TextBlock  FontSize="15" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Center"  Text="{Binding Patient.Age,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox FontSize="15" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" VerticalAlignment="Center" Background="White" Text="{Binding Patient.Mobilenumber,UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput"/>
+                                <TextBox  FontSize="15" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" VerticalAlignment="Center" Background="White" Text="{Binding Patient.Address,UpdateSourceTrigger=PropertyChanged}"/>
+                                <!--End Column 2-->
+
+                                <!--Last Row-->
+                                <Grid Grid.Row="8" Grid.ColumnSpan="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding SavePatient}">Save</Button>
+                                    <Button Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding ClearText}">Clear</Button>
+                                    <Button Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding EditPatient}">Edit</Button>
+                                </Grid>
+                                <!--End last Row-->
+
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Patient List" Margin="5" Grid.Column="1">
+                        <Grid Background="#E4F1FE" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="13*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="10*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Text="{Binding SearchPatient,UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center"  Background="White"/>
+                            </Grid>
+                            <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding PatientView}" SelectedItem="{Binding SelectedPatient,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Edit Patient" Command="{Binding EditMode}"/>
+                                        <MenuItem Header="Set As Active" Command="{Binding SetAsActive}"/>
+                                        <MenuItem Header="Set As Inactive" Command="{Binding SetAsInactive}"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Middle Name" Binding="{Binding Middlename}"/>
+                                    <DataGridTextColumn Header="Last Name"  Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header="Address"  Binding="{Binding Address}"/>
+                                    <DataGridTextColumn Header="Birthdate"  Binding="{Binding Birthdate}"/>
+                                    <DataGridTextColumn Header="Age"  Binding="{Binding Age}"/>
+                                    <DataGridTextColumn Header="Mobile Number"  Binding="{Binding Mobilenumber}"/>
+                                    <DataGridTextColumn Header="Status"  Binding="{Binding Status}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dental History">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Patient List" Grid.Column="0" Margin="5">
+                        <Grid Background="#E4F1FE" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="13*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="10*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Text="{Binding SearchPatient, UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center"  Background="White"/>
+                            </Grid>
+                            <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding PatientView}" SelectedItem="{Binding SelectedDentalHistory,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                               
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Middle Name" Binding="{Binding Middlename}"/>
+                                    <DataGridTextColumn Header="Last Name"  Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header="Address"  Binding="{Binding Address}"/>
+                                    <DataGridTextColumn Header="Birthdate"  Binding="{Binding Birthdate}"/>
+                                    <DataGridTextColumn Header="Age"  Binding="{Binding Age}"/>
+                                    <DataGridTextColumn Header="Mobile Number"  Binding="{Binding Mobilenumber}"/>
+                                    <DataGridTextColumn Header="Status"  Binding="{Binding Status}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Dental History" Grid.Column="1" Margin="5">
+                        <DataGrid VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding DentalHistories}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Detail"  Binding="{Binding Detail}"/>
+                                <DataGridTextColumn Header="Date Time Happen"  Binding="{Binding DateTimeHappen}"/>
+                                <DataGridTextColumn Header="Recorded By"  Binding="{Binding EmployeeName}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Billing History">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Patient List" Grid.Column="0" Margin="5">
+                        <Grid Background="#E4F1FE" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="13*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="10*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Text="{Binding SearchPatient, UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center"  Background="White"/>
+                            </Grid>
+                            <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding PatientView}" SelectedItem="{Binding SelectedBillingHistory,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                                
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Middle Name" Binding="{Binding Middlename}"/>
+                                    <DataGridTextColumn Header="Last Name"  Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header="Address"  Binding="{Binding Address}"/>
+                                    <DataGridTextColumn Header="Birthdate"  Binding="{Binding Birthdate}"/>
+                                    <DataGridTextColumn Header="Age"  Binding="{Binding Age}"/>
+                                    <DataGridTextColumn Header="Mobile Number"  Binding="{Binding Mobilenumber}"/>
+                                    <DataGridTextColumn Header="Status"  Binding="{Binding Status}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Billing History" Grid.Column="1" Margin="5">
+                        <DataGrid VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding BillingHistories}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Detail"  Binding="{Binding Detail}"/>
+                                <DataGridTextColumn Header="Date Time Happen"  Binding="{Binding DateTimeHappen}"/>
+                                <DataGridTextColumn Header="Recorded By"  Binding="{Binding EmployeeName}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

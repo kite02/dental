@@ -1,0 +1,79 @@
+﻿<Window x:Class="SmileLineDentalClinic.View.TreatmentToBeDoneWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+        mc:Ignorable="d"
+        Title="Select a Treatment" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="5" Background="#E4F1FE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2.0*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Search:" FontSize="15" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding SearchService,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+        </Grid>
+        <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False"  IsReadOnly="True" ItemsSource="{Binding ServicesView}"  SelectedItem="{Binding SelectedService,UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding ServiceType}"/>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Cost,StringFormat=C2,ConverterCulture=en-PH}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <GroupBox Header="Selected Treatment" Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="15" Text="Name:" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding SelectedService.Name,UpdateSourceTrigger=PropertyChanged}" FontSize="15"  Grid.Column="1" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="15" Text="Type:" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="15" Text="{Binding SelectedService.ServiceType,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="15" Text="Cost:" Grid.Column="0" VerticalAlignment="Center" />
+                        <TextBlock FontSize="15" Text="{Binding SelectedService.Cost,StringFormat=C2,ConverterCulture=en-PH}" Grid.Column="1" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <Button FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Select"  Grid.Row="1" Command="{Binding SelectService}"/>
+        </Grid>
+
+    </Grid>
+</Window>

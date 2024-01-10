@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.SuppliersView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" 
+            d:DesignHeight="583" d:DesignWidth="1067" >
+
+    <!--<UserControl.Background>
+        --><!--<ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>--><!--
+    </UserControl.Background>-->
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border  Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0">
+            <TextBlock FontSize="30" Text="Suppliers" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <GroupBox Grid.Column="0" Grid.Row="1" Header="Form" FontSize="15"  Margin="5" >
+            <Grid Background="#E4F1FE">
+                <Grid Margin="50,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Supplier Name:" Grid.Column="0" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox FontSize="15"  Grid.Column="1" VerticalAlignment="Center" Background="White" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Supplier Representative:" Grid.Column="0" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox FontSize="15"  Grid.Column="1" VerticalAlignment="Center" Background="White" Text="{Binding SupplierRepresentative,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Address:" Grid.Column="0" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox FontSize="15" Grid.Column="1" VerticalAlignment="Center" Background="White" Text="{Binding Address,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Contact No.:" Grid.Column="0" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" Background="White" Text="{Binding Contactnumber,ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Email Address:" Grid.Column="0" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" Background="White" Text="{Binding EmailAddress,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Save" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding SaveSupplier}" />
+                        <Button Content="Clear" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding ClearText}"/>
+                        <Button Content="Edit" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding EditSupplier}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Supplier List"  Grid.Row="1" Grid.Column="1" Margin="5">
+            <Grid  Background="#E4F1FE">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="13*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="9*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding SearchSupplier,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                </Grid>
+                <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding SupplierView}" SelectedItem="{Binding SelectedSupplier,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" >
+
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Edit Supplier" Command="{Binding EditMode}"/>
+                            <MenuItem Header="Set As Active" Command="{Binding SetAsActive}"/>
+                            <MenuItem Header="Set As Inactive" Command="{Binding SetAsInactive}"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Representative" Binding="{Binding SupplierRepresentative}"/>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Contact Number" Binding="{Binding Contactnumber}"/>
+                        <DataGridTextColumn Header="Email Address" Binding="{Binding EmailAddress}"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

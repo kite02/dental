@@ -1,0 +1,23 @@
+﻿<Window x:Class="SmileLineDentalClinic.View.DisposeConsumablesWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+        FontSize="15"
+        mc:Ignorable="d"
+        Title="Enter the quantity you want to dispose" Height="125.967" Width="410.926" WindowStartupLocation="CenterScreen">
+    <Grid Background="#E4F1FE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Quantity:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Quantity,UpdateSourceTrigger=PropertyChanged,ValidatesOnNotifyDataErrors=True}" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" Background="White"/>
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Command="{Binding Accept}">Dispose</Button>
+    </Grid>
+</Window>

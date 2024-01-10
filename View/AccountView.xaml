@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.AccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" 
+             d:DesignHeight="583" d:DesignWidth="1067"  >
+
+    <!--<UserControl.Background>
+        <ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>
+    </UserControl.Background>-->
+  
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Text="Accounts"   FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+        <GroupBox Header="Form" FontSize="15" Margin="5" Grid.Column="0" Grid.Row="1">
+            <Grid Background="#E4F1FE">
+                <Grid Margin="40,10"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <!--Column 1-->
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="0" Text="First Name:" VerticalAlignment="Center"/>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="1" Text="Middle Name:" VerticalAlignment="Center"/>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="2" Text="Last Name:" VerticalAlignment="Center"/>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="3" Text="Username:" VerticalAlignment="Center"/>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="4" Text="Password:" VerticalAlignment="Center"/>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Grid.Row="5" Text="Type:" VerticalAlignment="Center"/>
+                    <!--End Column 1-->
+                    <!--Column 2-->
+                    <TextBox Text="{Binding Firstname}" Grid.Column="1" FontSize="15" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" Background="White"></TextBox>
+                    <TextBox Text="{Binding Middlename}" Grid.Column="1" FontSize="15" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Background="White"/>
+                    <TextBox Text="{Binding Lastname}" Grid.Column="1"  FontSize="15" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" Background="White"/>
+                    <TextBox Text="{Binding Username,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" FontSize="15" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Background="White" >
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <!-- Placeholder for the TextBox itself -->
+                                    <AdornedElementPlaceholder x:Name="textBox"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox Text="{Binding Password}" FontSize="15" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Center" Background="White"/>
+                    <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Center" Background="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <!--<RadioButton Grid.Column="0" FontSize="15" Content="Male" HorizontalAlignment="Center" IsChecked="{Binding User.IsMaleChecked}" GroupName="Gender"/>-->
+                        <!--<RadioButton Grid.Column="1" FontSize="15" Content="Female" HorizontalAlignment="Center" IsChecked="{Binding User.IsFemaleChecked}" GroupName="Gender" />-->
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Background="White" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton FontSize="15" Content="Staff" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" GroupName="Type" Name="rbStaff" Command="{Binding HandleAccount}" CommandParameter="{Binding ElementName=rbStaff, Path=Content}" />
+                        <RadioButton FontSize="15" Content="Dentist" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" GroupName="Type" Name="rbDentist" Command="{Binding HandleAccount}" CommandParameter="{Binding ElementName=rbDentist, Path=Content}"/>
+                    </Grid>
+
+                    <!--End Column 2-->
+
+                    <!--Last Row-->
+                    <Grid Grid.Row="6" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding SaveUser}">Save</Button>
+                        <Button Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding ClearText}">Clear</Button>
+                        <Button Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding EditAccount}">Edit</Button>
+
+                    </Grid>
+                    <!--End last Row-->
+
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Account List"  Grid.Column="1" Grid.Row="1"  Margin="5" >
+            <Grid Background="#E4F1FE" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="13*" />
+                </Grid.RowDefinitions>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding SearchedText,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                </Grid>
+                <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" ItemsSource="{Binding UsersView,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedUser,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Name="gridUsers">
+                    
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Edit Account" Command="{Binding EditMode}"/>
+                            <MenuItem Header="Set As Active" Command="{Binding SetAsActive}"/>
+                            <MenuItem Header="Set As Inactive" Command="{Binding SetAsInactive}"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                        <DataGridTextColumn Header="Middle Name" Binding="{Binding Middlename}"/>
+                        <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                        <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                        <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                        <DataGridTextColumn  Header="Type" Binding="{Binding Type}"/>
+                        <DataGridTextColumn  Header="Status" Binding="{Binding Status}"/>
+                    </DataGrid.Columns>
+                    <!--<DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding UserFieldClicked}" CommandParameter="{Binding ElementName=gridUsers,Path=SelectedItem}"/>
+                    </DataGrid.InputBindings>-->
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

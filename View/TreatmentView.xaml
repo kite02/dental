@@ -1,0 +1,567 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.TreatmentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        mc:Ignorable="d"
+             d:DesignHeight="583" d:DesignWidth="1067" >
+    <!--<UserControl.Background>
+        --><!--<ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>--><!--
+    </UserControl.Background>-->
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <TextBlock Text="Treatment"   FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="Dental Chart" FontSize="15" Margin="5"  Grid.Column="0" >
+                <Grid Background="#E4F1FE">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Button Height="Auto" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose16}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\16.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose15}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\15.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="2" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose14}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\14.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose13}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\13.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="4" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose12}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\12.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="5" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose11}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\11.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="13" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="6" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose10}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\10.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="7" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose9}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\9.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="11" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="8" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose8}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\8.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="21" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="9" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose7}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\7.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="10" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose6}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\6.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="23" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="11" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose5}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\5.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="12" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose4}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\4.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="13" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose3}">
+                        <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\3.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="26" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,14,1,14"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="14" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose2}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\2.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="27" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="15" Grid.Row="0" VerticalContentAlignment="Stretch" Command="{Binding Choose1}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\1.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="28" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose17}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\17.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="48" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose18}"> 
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\18.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="47" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose19}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\19.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="46" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose20}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\20.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="45" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="4" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose21}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\21.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="44" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="5" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose22}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\22.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="43" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="6" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose23}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\23.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="42" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="7" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose24}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\24.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="41" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="8" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose25}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\25.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="31" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="9" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose26}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\26.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="10" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose27}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\27.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="33" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="11" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose28}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\28.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="34" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="12" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose29}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\29.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="13" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose30}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\30.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="14" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose31}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\31.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="37" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    <Button Height="Auto" Grid.Column="15" Grid.Row="1" VerticalContentAlignment="Stretch" Command="{Binding Choose32}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--<Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\32.png"   Stretch="Fill"/>-->
+                                <TextBlock Grid.Row="1" Text="38" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </GroupBox>
+            <GroupBox Header="Patient" FontSize="15" Margin="5"  Grid.Column="1">
+                <Grid  Background="#E4F1FE" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="7*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="1" Text="{Binding SearchPatient,UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center"  Background="White"/>
+                    </Grid>
+                    <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding PatientView}" SelectedItem="{Binding SelectedPatient}" IsReadOnly="True" IsEnabled="{Binding CanClickPatient}" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                            <DataGridTextColumn Header="Middle Name" Binding="{Binding Middlename}"/>
+                            <DataGridTextColumn Header="Last Name"  Binding="{Binding Lastname}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </GroupBox>
+           
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="Service" FontSize="15" Margin="5"  Grid.Column="0"  >
+                <Grid Background="#E4F1FE">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="7*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding SearchService,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                    </Grid>
+                    <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding ServicesView}"  SelectedItem="{Binding SelectedService,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Type" Binding="{Binding ServiceType}"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding Cost,StringFormat=C2,ConverterCulture=en-PH}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </GroupBox>
+            
+            <GroupBox Header="Selected Patient and Service" Margin="5" Grid.Column="1">
+                <Grid  Background="#E4F1FE" >
+                    <Grid Margin="25,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Patient Name:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <TextBlock Text="{Binding FullName,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Tooth Number:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <TextBlock Text="{Binding Tooth,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Service Name:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <TextBlock Text="{Binding SelectedService.Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Cost:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <TextBlock Text="{Binding SelectedService.Cost,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Additional Payment:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <TextBox Text="{Binding AdditionalPayment,UpdateSourceTrigger=PropertyChanged,StringFormat=0.00}"  VerticalAlignment="Center" Grid.Column="1" FontSize="15" Background="White" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </Grid>
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Used Consumables:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                            <Button Content=". . ."  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding GotoUsedConsumables}"/>
+                        </Grid>
+                        <Button  Grid.Row="6" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding AddtoCart}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image  Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\add.png" Grid.Column="0" Stretch="Uniform" />
+                                <TextBlock Text="Add" Grid.Column="1" FontSize="15" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="2" Margin="5"  Header="Service Rendered">
+                <Grid  Background="#E4F1FE">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <DataGrid FontSize="15" Grid.Row="0" ItemsSource="{Binding RenderedServices}" AutoGenerateColumns="False" IsReadOnly="True" SelectedIndex="{Binding RenderedServiceIndex,UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Remove this Item" Command="{Binding DeleteItem}"/>
+                                <MenuItem Header="Clear Received Items" Command="{Binding ClearItems}" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Tooth" Binding="{Binding Tooth}"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding Cost,StringFormat=C2,ConverterCulture=en-PH}"/>
+                            <DataGridTextColumn Header="Additional" Binding="{Binding Additional,StringFormat=C2,ConverterCulture=en-PH}"/>
+                            <DataGridTextColumn Header="Sub Total" Binding="{Binding SubTotal,StringFormat=C2,ConverterCulture=en-PH}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" BorderBrush="Red" Background="White" BorderThickness="5">
+                            <Grid Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Total Cost:" VerticalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                                <TextBlock Text="{Binding TotalCost,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" FontSize="15"/>
+                            </Grid>
+                        </Border>
+                        <Button  Height="Auto" Grid.Column="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Command="{Binding AddtoBilling}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Check" />
+                                <TextBlock Text="Done" Grid.Column="1" FontSize="15" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            
+        </Grid>
+    </Grid>
+</UserControl>

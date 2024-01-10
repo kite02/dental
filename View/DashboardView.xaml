@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" 
+             d:DesignHeight="710.638" d:DesignWidth="1075.031">
+    <!--<UserControl.Background>
+        --><!--<ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>--><!--
+    </UserControl.Background>-->
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center"  Text="Welcome, " FontSize="50"/>
+            <TextBlock Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center"  Text="{Binding FullName}" FontSize="50"/>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition />
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Margin="5" Header="Upcoming Appointment"  >
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding AppointmentNotifications}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}"/>
+                        <DataGridTextColumn Header="Contact Number" Binding="{Binding MobileNumber}"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                        <DataGridTextColumn Header="Days Left" Binding="{Binding DaysLeft}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="5" Height="Auto" HorizontalContentAlignment="Stretch" Command="{Binding GotoBilling}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\billing.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" />
+                        <TextBlock Grid.Column="1" Text="Billing" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="1" Margin="5" Height="Auto" HorizontalContentAlignment="Stretch" Command="{Binding GotoAppointments}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\appointment.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" />
+                        <TextBlock Grid.Column="1" Text="Appointments" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Button>
+            </Grid>
+            <GroupBox Grid.Row="2" Margin="5" Header="Unpaid Billings" >
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding BillingNotifications}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}"/>
+                        <DataGridTextColumn Header="Contact Number" Binding="{Binding MobileNumber}"/>
+                        <DataGridTextColumn Header="Service/Medicine Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Due Date" Binding="{Binding DateToPay}"/>
+                        <DataGridTextColumn Header="Amount To Pay" Binding="{Binding AmountToPay}"/>
+                        <DataGridTextColumn Header="Balance" Binding="{Binding Balance}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+
+        <Grid  Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition />
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Stocks" Margin="5" >
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding StocksNotifications}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="5" Height="Auto" Command="{Binding GotoPO}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\order.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" />
+                        <TextBlock Grid.Column="1" Text="Purchase Order" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="1" Margin="5" Height="Auto" Command="{Binding GotoReceiveOrder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\delivery.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" />
+                        <TextBlock Grid.Column="1" Text="Receive Order" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <GroupBox Header="Expiration" Grid.Row="2" Margin="5" >
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding ExpiryNotifications}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}"/>
+                        <DataGridTextColumn Header="Days Left" Binding="{Binding Daysleft}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

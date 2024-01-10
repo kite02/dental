@@ -1,0 +1,80 @@
+﻿<Window x:Class="SmileLineDentalClinic.LogInView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmileLineDentalClinic"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+ FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+    mc:Ignorable="d"
+        Title="The Smile Line Dental Center" Height="500" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        
+        >
+    <Grid Background="#E4F1FE">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo2.png" Grid.Row="0"  Stretch="Uniform"/>-->
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" FontSize="15" />
+                <TextBox   VerticalAlignment="Center"  Grid.Column="1" Background="White" FontSize="15" Text="{Binding User.Username}"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Password" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" FontSize="15"/>
+                <PasswordBox   VerticalAlignment="Center"  Grid.Column="1" Background="White" FontSize="15" Name="passwordbox"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding Login}" CommandParameter="{Binding ElementName=passwordbox}" IsDefault="True">
+                    <StackPanel>
+                        <TextBlock Text="Login"/>
+                    </StackPanel>
+                </Button>
+                <!--<ProgressBar Grid.Column="1"
+	Margin="12,12,12,12"
+	HorizontalAlignment="Center"
+	VerticalAlignment="Center"
+	IsIndeterminate="True"
+    Visibility="{Binding IsLoginClicked,UpdateSourceTrigger=PropertyChanged}"
+	Style="{StaticResource MaterialDesignCircularProgressBar}"
+	/>-->
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Command="{Binding Logout}" IsCancel="True">
+                    <StackPanel>
+                        <TextBlock Text="Cancel"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

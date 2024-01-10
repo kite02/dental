@@ -1,0 +1,300 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.POView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        mc:Ignorable="d"
+             d:DesignHeight="583" d:DesignWidth="1067">
+    <!--<UserControl.Background>
+        --><!--<ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>--><!--
+    </UserControl.Background>-->
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
+            <TextBlock Text="Purchase Order"   FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Order">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Supplier List"  Grid.Row="0" Grid.Column="0" Margin="5" FontSize="15">
+                        <Grid Background="#E4F1FE">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="5*" />
+                                <RowDefinition Height="1.5*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding SearchSupplier,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                            </Grid>
+                            <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding SupplierView}" SelectedItem="{Binding SelectedSupplier,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                                    <DataGridTextColumn Header="Representative" Binding="{Binding SupplierRepresentative}"/>
+                                    <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                                    <DataGridTextColumn Header="Contact Number" Binding="{Binding Contactnumber}"/>
+                                    <DataGridTextColumn Header="Email Address" Binding="{Binding EmailAddress}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Grid.Row="2" Height="Auto" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Margin="5" Command="{Binding SelectSupplier}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="ArrowRight" />
+                                    <TextBlock FontSize="15" Text="Select Supplier" Grid.Column="1" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+                    <TabControl Grid.Row="0" Grid.Column="1" Margin="5">
+                        <TabItem Header="Expiring Items">
+                            <GroupBox Header="Expiring Items" FontSize="15" >
+                                <Grid Background="#E4F1FE">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="5*" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="8*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                        <TextBox Text="{Binding SearchExpiringItem,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                                    </Grid>
+                                    <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding ExpiringItemsView}" SelectedItem="{Binding SelectedExpiringItem,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                                            <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}"/>
+                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                                            <DataGridTextColumn Header="Expiry Date" Binding="{Binding ExpirationDate}"/>
+                                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </GroupBox>
+                        </TabItem>
+                        <TabItem Header="Non-Expiring Items">
+                            <GroupBox Header="Non-Expiring Items" FontSize="15" >
+                                <Grid Background="#E4F1FE">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="5*" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="8*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                                        <TextBox Text="{Binding SearchNonExpiringItem,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                                    </Grid>
+                                    <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding NonExpiringItemsView}" SelectedItem="{Binding SelectedNonExpiringItem,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                                            <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}"/>
+                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </GroupBox>
+                        </TabItem>
+        </TabControl>
+        <GroupBox Grid.Column="0" Grid.Row="1" Header="Selected Item" FontSize="15" Margin="5" >
+                        <Grid Background="#E4F1FE">
+                            <Grid Margin="50,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="15" Text="Name:" VerticalAlignment="Center" Grid.Column="0"/>
+                                    <TextBlock FontSize="15" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="15" Text="Supplier:" VerticalAlignment="Center" Grid.Column="0"/>
+                                    <TextBlock FontSize="15" Text="{Binding SupplierName,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1"/>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="15" Text="Quantity:" VerticalAlignment="Center" Grid.Column="0"/>
+                                    <TextBox  FontSize="15" Text="{Binding Quantity,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Grid.Column="1" Background="White" PreviewTextInput="TextBox_PreviewTextInput" IsEnabled="{Binding IsExpiringItemChoosen,UpdateSourceTrigger=PropertyChanged}"/>
+                                </Grid>
+                                <Button Grid.Row="4" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Command="{Binding AddtoOrder}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Image  Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\order.png" Grid.Column="0" Stretch="Uniform" />
+                                        <TextBlock FontSize="15" Text="Order" Grid.Column="1" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Ordered Items" FontSize="15" Grid.Row="1" Grid.Column="1" Margin="5">
+                        <Grid Background="#E4F1FE">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="6*"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <DataGrid VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding OrderedExpiringItems}" SelectedItem="{Binding SelectedOrderedExpiringItem}" SelectedIndex="{Binding OrderedExpiringItemIndex,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Remove this Item" Command="{Binding PrintPO}"/>
+                                        <MenuItem Header="Remove this Item" Command="{Binding DeleteItem}"/>
+                                        <MenuItem Header="Clear Orders" Command="{Binding ClearOrders}" />
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Brand Name" Binding="{Binding Name}" />
+                                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch"  Command="{Binding SavePO}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <materialDesign:PackIcon Kind="Check" />
+                                        <TextBlock FontSize="15" Text="Save" Grid.Column="1" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ordered Expiring Items">
+                <GroupBox Header="Ordered Expiring Items" FontSize="15" Grid.Row="0" Grid.Column="1" Margin="5">
+                    <Grid Background="#E4F1FE">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="5*" />
+
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding SearchOrderedExpiringItems,UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center" Background="White" />
+                        </Grid>
+                        <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding OrderedExpiringItemsView}" SelectedItem="{Binding SelectedOrderedExpiringItemDetails}" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Print PO" Command="{Binding PrintPO}"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="PO No." Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier}" />
+                                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="DateTime Ordered" Binding="{Binding DateTimeOrdered}" />
+                                <DataGridTextColumn Header="Ordered By" Binding="{Binding EmployeeName}" />
+                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                            </DataGrid.Columns>
+                            
+                        </DataGrid>
+                    </Grid>
+                </GroupBox>
+            </TabItem>
+            <TabItem Header="Ordered Non-Expiring Items">
+                <GroupBox Header="Ordered Non-Expiring Items" FontSize="15" Grid.Row="0" Grid.Column="1" Margin="5">
+                    <Grid Background="#E4F1FE">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="5*" />
+
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="{Binding SearchOrderedNonExpiringItems,UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center" Background="White"/>
+                        </Grid>
+                        <DataGrid Grid.Row="1" VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" ItemsSource="{Binding OrderedNonExpiringItemsView}" SelectedItem="{Binding SelectedOrderedNonExpiringItemDetails}" IsReadOnly="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Print PO" Command="{Binding PrintPO}"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="PO No." Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier}" />
+                                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="DateTime Ordered" Binding="{Binding DateTimeOrdered}" />
+                                <DataGridTextColumn Header="Ordered By" Binding="{Binding EmployeeName}" />
+                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </GroupBox>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

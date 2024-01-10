@@ -1,0 +1,429 @@
+﻿<Window x:Class="SmileLineDentalClinic.View.MainMenuView"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+        xmlns:converter="clr-namespace:SmileLineDentalClinic.Converter"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        mc:Ignorable="d"
+        Title="Smile Line Dental Center"
+        Background="#E4F1FE"
+        Name="MainMenuWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" d:DesignWidth="1366" d:DesignHeight="768"  >
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Alt" Key="F4" Command="{Binding RecordLogOut}" CommandParameter="{Binding ElementName=MainMenuWindow}" />
+    </Window.InputBindings>
+    <!---->
+    <Window.Resources>
+        <converter:ExpanderToBooleanConverter x:Key="ExpanderToBooleanConverter" />
+        <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+            <views:DashboardView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:SuppliersViewModel}">
+            <views:SuppliersView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:AccountViewModel}">
+            <views:AccountView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:ServicesViewModel}">
+            <views:ServicesView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:InventoryViewModel}">
+            <views:InventoryView />
+        </DataTemplate>
+          
+          <DataTemplate DataType="{x:Type viewModels:POViewModel}">
+            <views:POView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ReceiveOrderViewModel}">
+            <views:ReceiveOrderView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:PatientViewModel}">
+            <views:PatientView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:AppointmentViewModel}">
+            <views:AppointmentView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:BillingViewModel}">
+            <views:BillingView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:TreatmentViewModel}">
+            <views:TreatmentView />
+        </DataTemplate>
+
+          <DataTemplate DataType="{x:Type viewModels:SalesReportViewModel}">
+            <views:SalesReportView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:AccountLogViewModel}">
+            <views:AccountLogView />
+        </DataTemplate>
+          <DataTemplate DataType="{x:Type viewModels:TransactionLogViewModel}">
+            <views:TransactionLogView />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#446CB3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\dentist.png" Stretch="Uniform" />
+                <TextBlock Grid.Row="1" Text="{Binding FullName}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="White"/>
+            </Grid>
+            <Grid Grid.Column="1"  Background="#E4F1FE">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--<Image  Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo2.png" Grid.Column="0" Stretch="Fill" />-->
+            <!--<Image  Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logoletters.png" Grid.Column="1" Stretch="Fill" />-->
+                <Grid Grid.Column="2">
+                <Grid.RowDefinitions >
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!--<Image Grid.Row="0"  Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\calendar.png" Grid.Column="0" Stretch="Fill"/>-->
+    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding CurrentDate,UpdateSourceTrigger=PropertyChanged}" FontSize="20" VerticalAlignment="Center"/>
+    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding CurrentTime,UpdateSourceTrigger=PropertyChanged}" FontSize="20" VerticalAlignment="Center"/>
+    </Grid>
+    </Grid>
+    </Grid>
+    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Height="74"  HorizontalContentAlignment="Stretch"  Command="{Binding GotoDashboard}" IsEnabled="{Binding CanIClickDashboard,UpdateSourceTrigger=PropertyChanged}" Margin="5">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\dashboard.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                    <TextBlock Grid.Column="1" Text="Dashboard" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                </Grid>
+            </Button>
+            <Expander  ExpandDirection="Down" Grid.Row="1" Background="#E4F1FE"  IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=1}">
+                <Expander.Header>
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\manage.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Manage" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0"  Height="Auto" MaxHeight="50" Margin="5" Command="{Binding GotoSuppliers}" HorizontalContentAlignment="Stretch" IsEnabled="{Binding CanIClickSupplier,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\supplier.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Suppliers" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoAccounts}" IsEnabled="{Binding CanIClickAccounts,UpdateSourceTrigger=PropertyChanged}" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\user.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Accounts" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="2" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoServices}" IsEnabled="{Binding CanIClickServices,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\services.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Services" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+                
+            </Expander>
+            <Expander ExpandDirection="Down" Grid.Row="2" HorizontalContentAlignment="Stretch"  Background="#E4F1FE"  IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=2}">
+                <Expander.Header>
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\inventory.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Inventory" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoInventory}" IsEnabled="{Binding CanIClickInventory,UpdateSourceTrigger=PropertyChanged}" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\inventory.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Inventory" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        </Grid>
+                    </Button>
+                   
+                    <Button Grid.Row="1" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoPO}" IsEnabled="{Binding CanIClickPO,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\order.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Purchase Order" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="2" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoReceiveOrder}" IsEnabled="{Binding CanIClickReceiveOrder,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\delivery.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Receive Order" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Expander>
+            <Expander ExpandDirection="Down" Grid.Row="3" HorizontalContentAlignment="Stretch" Background="#E4F1FE"  IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=3}" >
+                <Expander.Header >
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\patient.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Patients" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0"  HorizontalContentAlignment="Stretch" Height="Auto" MaxHeight="50" Margin="5" Command="{Binding GotoPatients}" IsEnabled="{Binding CanIClickPatients,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\patient.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Patient List" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoAppointments}" IsEnabled="{Binding CanIClickAppointments,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\appointment.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Appointments" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="2" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoBilling}" IsEnabled="{Binding CanIClickBilling,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\billing.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Billing" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="4"  HorizontalContentAlignment="Stretch" Height="Auto" MaxHeight="50" Margin="5" Command="{Binding GotoTreatment}" IsEnabled="{Binding CanIClickTreatment,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\treatment.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Treatment" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Expander>
+            <Expander ExpandDirection="Down" Grid.Row="4" HorizontalContentAlignment="Stretch" Background="#E4F1FE"  IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=4}" >
+                <Expander.Header>
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\report.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Reports" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding PrintInventoryReport}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\inventory.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Inventory Report" VerticalAlignment="Center" FontSize="12"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding GotoSalesReport}" IsEnabled="{Binding CanIClickSalesReport,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\report.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Sales Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Expander>
+            <Expander ExpandDirection="Down" Grid.Row="5"  HorizontalContentAlignment="Stretch"  Background="#E4F1FE"  IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=5}">
+                <Expander.Header>
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logs.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Logs" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0"  HorizontalContentAlignment="Stretch" Command="{Binding GotoAccountLogs}"  Height="Auto" MaxHeight="50" Margin="5" IsEnabled="{Binding CanIClickAccountLogs,UpdateSourceTrigger=PropertyChanged}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\accountlog.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Account Logs" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"/>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1"  HorizontalContentAlignment="Stretch" Command="{Binding GotoTransactionLogs}" Height="Auto" MaxHeight="50" Margin="5" IsEnabled="{Binding CanIClickTransactionLog,UpdateSourceTrigger=PropertyChanged}"  >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\transactionlog.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Transaction Logs" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Expander>
+            <Expander ExpandDirection="Down" Grid.Row="6"  HorizontalContentAlignment="Stretch" Background="#E4F1FE" IsExpanded="{Binding SelectedExpander,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=6}" >
+                <Expander.Header>
+                    <Grid Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\database.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1" Text="Database" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding BackUpDatabase}" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\backup.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Backup" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1" Height="Auto" MaxHeight="50" Margin="5"  HorizontalContentAlignment="Stretch" Command="{Binding RestoreDatabase}" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\restore.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                            <TextBlock Grid.Column="1" Text="Restore" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Expander>
+            <Button Grid.Row="7" Height="74"  HorizontalContentAlignment="Stretch" IsCancel="True" Command="{Binding RecordLogOut}" CommandParameter="{Binding ElementName=MainMenuWindow}" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logout.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+                    <TextBlock Grid.Column="1" Text="Logout" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <ContentControl  Grid.Row="1" Grid.Column="1" Content="{Binding Display,UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+    </Grid>
+</Window>

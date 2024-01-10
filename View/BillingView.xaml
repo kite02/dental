@@ -1,0 +1,202 @@
+﻿<UserControl x:Class="SmileLineDentalClinic.View.BillingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:SmileLineDentalClinic.View"
+        xmlns:viewModels="clr-namespace:SmileLineDentalClinic.ViewModel"
+     xmlns:local="clr-namespace:SmileLineDentalClinic.View"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     
+   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             mc:Ignorable="d" 
+             d:DesignHeight="583" d:DesignWidth="1067"  >
+    <!--<UserControl.Background>-->
+        <!--<ImageBrush ImageSource="C:\Users\jules\OneDrive\Desktop\Work\SAD\New SAD\Images\logo.png" Stretch="Fill"/>--><!--
+    </UserControl.Background>-->
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#EEEEEE" Opacity="0.9" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Text="Billing"   FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <GroupBox  FontSize="15" Header="Services"  Grid.Row="0" Grid.RowSpan="2" Margin="5">
+                <Grid  Background="#E4F1FE">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Column="0" Text="Search:" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding SearchServiceBilling,UpdateSourceTrigger=PropertyChanged}" FontSize="15" VerticalAlignment="Center" Background="White" Grid.Column="1" />
+                    </Grid>
+                    <DataGrid VerticalAlignment="Stretch" FontSize="15" AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="2" IsReadOnly="True" ItemsSource="{Binding ServiceBillingsView}" SelectedItem="{Binding SelectedServiceBilling,UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding PatientName}"/>
+                            <DataGridTextColumn Header="Tooth" Binding="{Binding Tooth}"/>
+                            <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"/>
+                            <DataGridTextColumn Header="Additional" Binding="{Binding Additional,StringFormat=C2,ConverterCulture=en-PH}" />
+                            <DataGridTextColumn Header="Balance" Binding="{Binding Balance,StringFormat=C2,ConverterCulture=en-PH}"/>
+                            <DataGridTextColumn Header="Amount To Pay" Binding="{Binding AmountToPay,StringFormat=C2,ConverterCulture=en-PH}"/>
+                            <DataGridTextColumn Header="Date to Pay" Binding="{Binding DateToPay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid  Grid.Column="1" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Column="0" Grid.Row="0" Header="Selected Patient and Its Service" FontSize="15" Margin="5">
+                <Grid Background="#E4F1FE">
+                    <Grid Margin="50,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Patient Name:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Service/Product Bought:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15" Text="{Binding Service,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Date to Pay:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15"  Text="{Binding DateToPay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Column="1" Background="White" />
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Balance:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15"  Text="{Binding Balance,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Amount to Pay:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15" Text="{Binding AmountToPay,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Total Balance:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15" Text="{Binding TotalBalance,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Excess:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBlock FontSize="15" Text="{Binding ExcessBalance,UpdateSourceTrigger=PropertyChanged,StringFormat=C2,ConverterCulture=en-PH}" VerticalAlignment="Center" Grid.Column="1" Background="White"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="0" Grid.Row="1" Header="Payment" FontSize="15" Margin="5">
+                <Grid  Background="#E4F1FE">
+                    <Grid Margin="50,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Payment Type:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <ComboBox FontSize="15"  VerticalAlignment="Center" Grid.Column="1" Background="White" ItemsSource="{Binding PaymentType}" SelectedItem="{Binding SelectedPaymentType,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EnablePaymentType,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedPaymentTypeIndex,UpdateSourceTrigger=PropertyChanged}">
+                            </ComboBox>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="2*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" Text="Amount Rendered:" VerticalAlignment="Center" Grid.Column="0"/>
+                            <TextBox FontSize="15"  VerticalAlignment="Center" Grid.Column="1" Background="White" Text="{Binding AmountRendered,UpdateSourceTrigger=PropertyChanged,ValidatesOnNotifyDataErrors=True,StringFormat=0.00}" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+
+                        <Button Grid.Row="2" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" Command="{Binding Done}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Check" Grid.Column="0" />
+                                <TextBlock FontSize="15" Text="Done" Grid.Column="1" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</UserControl>
